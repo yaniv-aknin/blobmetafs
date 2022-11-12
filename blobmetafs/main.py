@@ -17,10 +17,10 @@ import stat
 #
 # [0]: https://github.com/omnilib/aiosqlite/issues/74
 import peewee
+from playhouse.reflection import generate_models
 import pyfuse3
 import trio
 
-from blobmetatools.models import Blob, connect_sqlite
 from blobmetatools.main import DATA_SIGNATURE
 
 def not_exist_to_no_ent(func):
@@ -34,13 +34,17 @@ def not_exist_to_no_ent(func):
 
 class BlobMetaFs(pyfuse3.Operations):
 
+    def __init__(self, Blob):
+        super(BlobMetaFs, self).__init__()
+        self.Blob = Blob
+
     @not_exist_to_no_ent
     def blob_by_id(self, id):
-        return Blob.get(Blob.id == id)
+        return self.Blob.get(self.Blob.id == id)
 
     @not_exist_to_no_ent
     def blob_by_name(self, name):
-        return Blob.get(Blob.name == name)
+        return self.Blob.get(self.Blob.name == name)
 
     async def getattr(self, inode, ctx=None):
         entry = pyfuse3.EntryAttributes()
@@ -75,7 +79,7 @@ class BlobMetaFs(pyfuse3.Operations):
 
     async def readdir(self, fh, start_id, token):
         assert fh == pyfuse3.ROOT_INODE
-        for blob in Blob.select().offset(start_id):
+        for blob in self.Blob.select().offset(start_id):
             start_id += 1
             attr = await self.getattr(blob.id)
             if pyfuse3.readdir_reply(token, os.fsencode(blob.name), attr, start_id) is False:
@@ -101,17 +105,21 @@ def init_logging(debug=False):
 
 @click.command
 @click.argument('mountpoint', type=click.Path(exists=True, file_okay=False, path_type=Path))
-@click.argument('data', type=click.Path(exists=True, file_okay=False, path_type=Path))
+@click.argument('datadir', type=click.Path(exists=True, file_okay=False, path_type=Path))
 @click.option('--debug', type=click.BOOL, default=False)
 @click.option('--debug-fuse', type=click.BOOL, default=False)
-def main(mountpoint, data, debug, debug_fuse):
-    if not (data / DATA_SIGNATURE).exists():
-        raise click.Abort(f"can't find {DATA_SIGNATURE} in {data}")
+def main(mountpoint, datadir, debug, debug_fuse):
+    if not (datadir / DATA_SIGNATURE).exists():
+        raise click.Abort(f"can't find {DATA_SIGNATURE} in {datadir}")
     init_logging(debug)
 
-    connect_sqlite(str(data / 'db.sqlite'))
+    db = peewee.SqliteDatabase(datadir / 'db.sqlite')
+    db.connect()
+    models = generate_models(db)
+    if 'blob' not in models:
+        raise click.Abort("can't find Blob table")
 
-    bmfs = BlobMetaFs()
+    bmfs = BlobMetaFs(models['blob'])
     fuse_options = set(pyfuse3.default_options)
     fuse_options.add('fsname=blobmetafs')
     if debug_fuse:

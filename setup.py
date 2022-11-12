@@ -15,6 +15,7 @@ setup(
     long_description_content_type='text/markdown',
     entry_points = {
         'console_scripts': ['bmfs.initdb=blobmetatools.main:initdb',
+                            'bmfs.dbshell=blobmetatools.main:dbshell',
                             'blobmetafs=blobmetafs.main:main'],
     },
     install_requires = [
