@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import click
 import shutil
 import pyfuse3
@@ -6,13 +7,15 @@ import subprocess
 import peewee
 from playhouse.reflection import generate_models
 
+from bmkit import blobmeta
+
 DATA_SIGNATURE = '.blobmetadata'
 
 @click.command()
 @click.argument('datadir', type=click.Path(exists=True, file_okay=False, path_type=Path))
 @click.option('--overwrite/--no-overwrite', default=True)
 @click.option('--metadata-column', default='metadata')
-def initdb(datadir, overwrite, metadata_column):
+def initdata(datadir, overwrite, metadata_column):
     if datadir.exists():
         if not overwrite:
             raise click.Abort('data directory already exists')
@@ -22,6 +25,10 @@ def initdb(datadir, overwrite, metadata_column):
         shutil.rmtree(datadir)
         datadir.mkdir()
         (datadir / DATA_SIGNATURE).touch()
+
+    config = {"pathdefs": {"by-metadata": [metadata_column]}}
+    with open(datadir / 'config.json', 'w') as handle:
+        json.dump(config, handle)
 
     attrs = {
         'name': peewee.CharField(unique=True),
@@ -48,8 +55,14 @@ def initdb(datadir, overwrite, metadata_column):
 
 @click.command()
 @click.argument('datadir', type=click.Path(exists=True, file_okay=False, path_type=Path))
-def dbshell(datadir):
+def shell(datadir):
     db = peewee.SqliteDatabase(datadir / 'db.sqlite')
     models = generate_models(db)
+    Blob = models['blob']
+
+    with open(datadir / 'config.json') as handle:
+        config = json.load(handle)
+    bm = blobmeta.BlobMeta(Blob, config['pathdefs'])
+
     import IPython
     IPython.embed()

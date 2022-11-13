@@ -14,8 +14,8 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     entry_points = {
-        'console_scripts': ['bmkit.initdb=bmkit.main:initdb',
-                            'bmkit.dbshell=bmkit.main:dbshell',
+        'console_scripts': ['bmkit.initdata=bmkit.main:initdata',
+                            'bmkit.shell=bmkit.main:shell',
                             'blobmetafs=bmfs.main:main'],
     },
     install_requires = [
