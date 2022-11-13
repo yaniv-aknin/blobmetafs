@@ -18,6 +18,9 @@ setup(
                             'bmkit.shell=bmkit.main:shell',
                             'blobmetafs=bmfs.main:main'],
     },
+    package_data = {
+        'bmkit': ['sample_data/*']
+    },
     install_requires = [
         'pyfuse3',
         'peewee',

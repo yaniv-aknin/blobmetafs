@@ -1,5 +1,7 @@
 from pathlib import Path
 import json
+import io
+import csv
 import click
 import shutil
 import pyfuse3
@@ -11,11 +13,33 @@ from bmkit import blobmeta
 
 DATA_SIGNATURE = '.blobmetadata'
 
+TYPE_TO_FIELD_TYPE = {
+    str: peewee.CharField,
+    int: peewee.IntegerField,
+    float: peewee.FloatField,
+    bool: peewee.BooleanField,
+}
+
+def model_from_dict(record):
+    if 'path' not in record:
+        raise ValueError("blobmetafs expects a field called 'path'")
+    model_attrs = {
+        'path': peewee.CharField(unique=True),
+    }
+    for field_name, sample_value in record.items():
+        if field_name == 'path':
+            continue
+        try:
+            model_attrs[field_name] = TYPE_TO_FIELD_TYPE[type(sample_value)]()
+        except KeyError:
+            raise RuntimeError(f'unknown type for field {field_name}')
+    return type('Blob', (peewee.Model,), model_attrs)
+
 @click.command()
 @click.argument('datadir', type=click.Path(exists=True, file_okay=False, path_type=Path))
 @click.option('--overwrite/--no-overwrite', default=True)
-@click.option('--metadata-column', default='metadata')
-def initdata(datadir, overwrite, metadata_column):
+@click.option('--sample-records', help="Path to JSON we'll use to populate database")
+def initdata(datadir, overwrite, sample_records):
     if datadir.exists():
         if not overwrite:
             raise click.Abort('data directory already exists')
@@ -26,30 +50,29 @@ def initdata(datadir, overwrite, metadata_column):
         datadir.mkdir()
         (datadir / DATA_SIGNATURE).touch()
 
-    config = {"pathdefs": {"by-metadata": [metadata_column]}}
-    with open(datadir / 'config.json', 'w') as handle:
-        json.dump(config, handle)
+    if sample_records is None:
+        data = []
+        Blob = model_from_dict({'path': ''})
+    else:
+        with open(sample_records) as handle:
+            data = json.load(handle)
+        Blob = model_from_dict(data[0])
 
-    attrs = {
-        'name': peewee.CharField(unique=True),
-        metadata_column: peewee.IntegerField(),
-    }
-    Blob = type('Blob', (peewee.Model,), attrs)
+    config = {'pathdefs': {}}
+    for field in Blob._meta.fields:
+        config['pathdefs'][f'by-{field}'] = [field]
+    with open(datadir / 'config.json', 'w') as handle:
+        json.dump(config, handle, indent=4)
+
 
     db = peewee.SqliteDatabase(datadir / 'db.sqlite')
     db.bind([Blob])
     db.connect()
     db.create_tables([Blob])
 
-    values = {'foo': 1, 'bar': 2, 'baz': 2, 'qux': 1}
-    for index, name in enumerate(values, 1):
-        (Path('data')/name).write_text(name)
-        kwargs = {
-            'id': pyfuse3.ROOT_INODE+index,
-            'name': name,
-            metadata_column: values[name],
-        }
-        Blob(**kwargs).save(force_insert=True)
+    for record in data:
+        (Path('data')/record['path']).write_text(json.dumps(record, indent=4))
+        Blob(**record).save(force_insert=True)
 
     click.echo('done')
 

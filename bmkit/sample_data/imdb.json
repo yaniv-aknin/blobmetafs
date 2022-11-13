@@ -1,0 +1,422 @@
+[
+    {
+        "path": "t0111161",
+        "primary_title": "The Shawshank Redemption",
+        "average_rating": 9.3,
+        "year": 1994,
+        "runtime_minutes": 142
+    },
+    {
+        "path": "t0068646",
+        "primary_title": "The Godfather",
+        "average_rating": 9.2,
+        "year": 1972,
+        "runtime_minutes": 175
+    },
+    {
+        "path": "t0108052",
+        "primary_title": "Schindler's List",
+        "average_rating": 9.0,
+        "year": 1993,
+        "runtime_minutes": 195
+    },
+    {
+        "path": "t0468569",
+        "primary_title": "The Dark Knight",
+        "average_rating": 9.0,
+        "year": 2008,
+        "runtime_minutes": 152
+    },
+    {
+        "path": "t0071562",
+        "primary_title": "The Godfather Part II",
+        "average_rating": 9.0,
+        "year": 1974,
+        "runtime_minutes": 202
+    },
+    {
+        "path": "t0167260",
+        "primary_title": "The Lord of the Rings: The Return of the King",
+        "average_rating": 9.0,
+        "year": 2003,
+        "runtime_minutes": 201
+    },
+    {
+        "path": "t0110912",
+        "primary_title": "Pulp Fiction",
+        "average_rating": 8.9,
+        "year": 1994,
+        "runtime_minutes": 154
+    },
+    {
+        "path": "t0137523",
+        "primary_title": "Fight Club",
+        "average_rating": 8.8,
+        "year": 1999,
+        "runtime_minutes": 139
+    },
+    {
+        "path": "t0109830",
+        "primary_title": "Forrest Gump",
+        "average_rating": 8.8,
+        "year": 1994,
+        "runtime_minutes": 142
+    },
+    {
+        "path": "t1375666",
+        "primary_title": "Inception",
+        "average_rating": 8.8,
+        "year": 2010,
+        "runtime_minutes": 148
+    },
+    {
+        "path": "tt0120737",
+        "primary_title": "The Lord of the Rings: The Fellowship of the Ring",
+        "average_rating": 8.8,
+        "year": 2001,
+        "runtime_minutes": 178
+    },
+    {
+        "path": "tt0167261",
+        "primary_title": "The Lord of the Rings: The Two Towers",
+        "average_rating": 8.8,
+        "year": 2002,
+        "runtime_minutes": 179
+    },
+    {
+        "path": "tt0099685",
+        "primary_title": "Goodfellas",
+        "average_rating": 8.7,
+        "year": 1990,
+        "runtime_minutes": 145
+    },
+    {
+        "path": "tt0073486",
+        "primary_title": "One Flew Over the Cuckoo's Nest",
+        "average_rating": 8.7,
+        "year": 1975,
+        "runtime_minutes": 133
+    },
+    {
+        "path": "tt0080684",
+        "primary_title": "Star Wars: Episode V - The Empire Strikes Back",
+        "average_rating": 8.7,
+        "year": 1980,
+        "runtime_minutes": 124
+    },
+    {
+        "path": "tt0133093",
+        "primary_title": "The Matrix",
+        "average_rating": 8.7,
+        "year": 1999,
+        "runtime_minutes": 136
+    },
+    {
+        "path": "tt0816692",
+        "primary_title": "Interstellar",
+        "average_rating": 8.6,
+        "year": 2014,
+        "runtime_minutes": 169
+    },
+    {
+        "path": "tt0120815",
+        "primary_title": "Saving Private Ryan",
+        "average_rating": 8.6,
+        "year": 1998,
+        "runtime_minutes": 169
+    },
+    {
+        "path": "tt0114369",
+        "primary_title": "Se7en",
+        "average_rating": 8.6,
+        "year": 1995,
+        "runtime_minutes": 127
+    },
+    {
+        "path": "tt0076759",
+        "primary_title": "Star Wars: Episode IV - A New Hope",
+        "average_rating": 8.6,
+        "year": 1977,
+        "runtime_minutes": 121
+    },
+    {
+        "path": "tt0103064",
+        "primary_title": "Terminator 2: Judgment Day",
+        "average_rating": 8.6,
+        "year": 1991,
+        "runtime_minutes": 137
+    },
+    {
+        "path": "tt0120689",
+        "primary_title": "The Green Mile",
+        "average_rating": 8.6,
+        "year": 1999,
+        "runtime_minutes": 189
+    },
+    {
+        "path": "tt0102926",
+        "primary_title": "The Silence of the Lambs",
+        "average_rating": 8.6,
+        "year": 1991,
+        "runtime_minutes": 118
+    },
+    {
+        "path": "tt0120586",
+        "primary_title": "American History X",
+        "average_rating": 8.5,
+        "year": 1998,
+        "runtime_minutes": 119
+    },
+    {
+        "path": "tt0088763",
+        "primary_title": "Back to the Future",
+        "average_rating": 8.5,
+        "year": 1985,
+        "runtime_minutes": 116
+    },
+    {
+        "path": "tt0172495",
+        "primary_title": "Gladiator",
+        "average_rating": 8.5,
+        "year": 2000,
+        "runtime_minutes": 155
+    },
+    {
+        "path": "tt0110413",
+        "primary_title": "L\u00e9on: The Professional",
+        "average_rating": 8.5,
+        "year": 1994,
+        "runtime_minutes": 110
+    },
+    {
+        "path": "tt0407887",
+        "primary_title": "The Departed",
+        "average_rating": 8.5,
+        "year": 2006,
+        "runtime_minutes": 151
+    },
+    {
+        "path": "tt0110357",
+        "primary_title": "The Lion King",
+        "average_rating": 8.5,
+        "year": 1994,
+        "runtime_minutes": 88
+    },
+    {
+        "path": "tt0482571",
+        "primary_title": "The Prestige",
+        "average_rating": 8.5,
+        "year": 2006,
+        "runtime_minutes": 130
+    },
+    {
+        "path": "tt0114814",
+        "primary_title": "The Usual Suspects",
+        "average_rating": 8.5,
+        "year": 1995,
+        "runtime_minutes": 106
+    },
+    {
+        "path": "tt0169547",
+        "primary_title": "American Beauty",
+        "average_rating": 8.4,
+        "year": 1999,
+        "runtime_minutes": 122
+    },
+    {
+        "path": "tt4154796",
+        "primary_title": "Avengers: Endgame",
+        "average_rating": 8.4,
+        "year": 2019,
+        "runtime_minutes": 181
+    },
+    {
+        "path": "tt4154756",
+        "primary_title": "Avengers: Infinity War",
+        "average_rating": 8.4,
+        "year": 2018,
+        "runtime_minutes": 149
+    },
+    {
+        "path": "tt0112573",
+        "primary_title": "Braveheart",
+        "average_rating": 8.4,
+        "year": 1995,
+        "runtime_minutes": 178
+    },
+    {
+        "path": "tt1853728",
+        "primary_title": "Django Unchained",
+        "average_rating": 8.4,
+        "year": 2012,
+        "runtime_minutes": 165
+    },
+    {
+        "path": "tt7286456",
+        "primary_title": "Joker",
+        "average_rating": 8.4,
+        "year": 2019,
+        "runtime_minutes": 122
+    },
+    {
+        "path": "tt0209144",
+        "primary_title": "Memento",
+        "average_rating": 8.4,
+        "year": 2000,
+        "runtime_minutes": 113
+    },
+    {
+        "path": "tt1345836",
+        "primary_title": "The Dark Knight Rises",
+        "average_rating": 8.4,
+        "year": 2012,
+        "runtime_minutes": 164
+    },
+    {
+        "path": "tt0081505",
+        "primary_title": "The Shining",
+        "average_rating": 8.4,
+        "year": 1980,
+        "runtime_minutes": 146
+    },
+    {
+        "path": "tt0910970",
+        "primary_title": "WALL\u00b7E",
+        "average_rating": 8.4,
+        "year": 2008,
+        "runtime_minutes": 98
+    },
+    {
+        "path": "tt0338013",
+        "primary_title": "Eternal Sunshine of the Spotless Mind",
+        "average_rating": 8.3,
+        "year": 2004,
+        "runtime_minutes": 108
+    },
+    {
+        "path": "tt0361748",
+        "primary_title": "Inglourious Basterds",
+        "average_rating": 8.3,
+        "year": 2009,
+        "runtime_minutes": 153
+    },
+    {
+        "path": "tt0105236",
+        "primary_title": "Reservoir Dogs",
+        "average_rating": 8.3,
+        "year": 1992,
+        "runtime_minutes": 99
+    },
+    {
+        "path": "tt0086190",
+        "primary_title": "Star Wars: Episode VI - Return of the Jedi",
+        "average_rating": 8.3,
+        "year": 1983,
+        "runtime_minutes": 131
+    },
+    {
+        "path": "tt1049413",
+        "primary_title": "Up",
+        "average_rating": 8.3,
+        "year": 2009,
+        "runtime_minutes": 96
+    },
+    {
+        "path": "tt0372784",
+        "primary_title": "Batman Begins",
+        "average_rating": 8.2,
+        "year": 2005,
+        "runtime_minutes": 140
+    },
+    {
+        "path": "tt0266543",
+        "primary_title": "Finding Nemo",
+        "average_rating": 8.2,
+        "year": 2003,
+        "runtime_minutes": 100
+    },
+    {
+        "path": "tt0266697",
+        "primary_title": "Kill Bill: Vol. 1",
+        "average_rating": 8.2,
+        "year": 2003,
+        "runtime_minutes": 111
+    },
+    {
+        "path": "tt1130884",
+        "primary_title": "Shutter Island",
+        "average_rating": 8.2,
+        "year": 2010,
+        "runtime_minutes": 138
+    },
+    {
+        "path": "tt0120382",
+        "primary_title": "The Truman Show",
+        "average_rating": 8.2,
+        "year": 1998,
+        "runtime_minutes": 103
+    },
+    {
+        "path": "tt0993846",
+        "primary_title": "The Wolf of Wall Street",
+        "average_rating": 8.2,
+        "year": 2013,
+        "runtime_minutes": 180
+    },
+    {
+        "path": "tt0434409",
+        "primary_title": "V for Vendetta",
+        "average_rating": 8.2,
+        "year": 2005,
+        "runtime_minutes": 132
+    },
+    {
+        "path": "tt0325980",
+        "primary_title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+        "average_rating": 8.1,
+        "year": 2003,
+        "runtime_minutes": 143
+    },
+    {
+        "path": "tt1431045",
+        "primary_title": "Deadpool",
+        "average_rating": 8.0,
+        "year": 2016,
+        "runtime_minutes": 108
+    },
+    {
+        "path": "tt2015381",
+        "primary_title": "Guardians of the Galaxy",
+        "average_rating": 8.0,
+        "year": 2014,
+        "runtime_minutes": 121
+    },
+    {
+        "path": "tt0848228",
+        "primary_title": "The Avengers",
+        "average_rating": 8.0,
+        "year": 2012,
+        "runtime_minutes": 143
+    },
+    {
+        "path": "tt0371746",
+        "primary_title": "Iron Man",
+        "average_rating": 7.9,
+        "year": 2008,
+        "runtime_minutes": 126
+    },
+    {
+        "path": "tt0120338",
+        "primary_title": "Titanic",
+        "average_rating": 7.9,
+        "year": 1997,
+        "runtime_minutes": 194
+    },
+    {
+        "path": "tt0499549",
+        "primary_title": "Avatar",
+        "average_rating": 7.8,
+        "year": 2009,
+        "runtime_minutes": 162
+    }
+]
