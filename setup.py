@@ -9,14 +9,14 @@ with open('README.md') as handle:
 setup(
     name='blobmetafs',
     version='0.1dev',
-    packages=['blobmetafs', 'blobmetatools'],
+    packages=['bmfs', 'bmkit'],
     license=license,
     long_description=long_description,
     long_description_content_type='text/markdown',
     entry_points = {
-        'console_scripts': ['bmfs.initdb=blobmetatools.main:initdb',
-                            'bmfs.dbshell=blobmetatools.main:dbshell',
-                            'blobmetafs=blobmetafs.main:main'],
+        'console_scripts': ['bmkit.initdb=bmkit.main:initdb',
+                            'bmkit.dbshell=bmkit.main:dbshell',
+                            'blobmetafs=bmfs.main:main'],
     },
     install_requires = [
         'pyfuse3',

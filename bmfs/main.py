@@ -21,7 +21,7 @@ from playhouse.reflection import generate_models
 import pyfuse3
 import trio
 
-from blobmetatools.main import DATA_SIGNATURE
+from bmkit.main import DATA_SIGNATURE
 
 def not_exist_to_no_ent(func):
     @functools.wraps(func)
